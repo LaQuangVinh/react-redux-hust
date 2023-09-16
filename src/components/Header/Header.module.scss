@@ -2,6 +2,7 @@
 .inputSearchWrapper {
   background-color: #333;
   overflow: hidden;
+  --heightInput: 91px;
 }
 
 .mountInputAnimation {
@@ -55,21 +56,64 @@
     height: 0;
   }
   to {
-    height: 91px;
+    height: var(--heightInput);
   }
 }
 
 @keyframes unmountInput {
   from {
-    height: 91px;
+    height: var(--heightInput);
   }
   to {
     height: 0px;
   }
 }
 
-// CSS cho logo và tên trường
+// Xử lí khi scroll
 .wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: fixHeader ease-in-out 0.5s;
+
+  .wrapperNav {
+    background-color: var(--primary);
+  }
+
+  .wrapperNavBottom {
+    background-color: #fdfdfe;
+    box-shadow: 0 0px 3px 2px rgb(0 0 0 / 30%);
+    width: 100%;
+    height: 44px;
+    position: relative;
+  }
+
+  .navBottomList {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0;
+  }
+  .navBottomItem {
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+}
+@keyframes fixHeader {
+  from {
+    transform: translateY(-160px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+// CSS cho logo và tên trường
+.wrapperNav {
   background-color: transparent;
   height: 110px;
 
@@ -153,4 +197,24 @@
   background-position: center center;
   display: block;
   box-shadow: 0 0px 2px 1px rgb(0 0 0 / 15%);
+}
+
+//Navigate bên dưới
+.containerNavBottom {
+  padding: 0;
+}
+
+.navBottomList {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0;
+  height: 44px;
+}
+
+.navBottomItem {
+  cursor: pointer;
+  color: var(--white);
+  font-weight: 700;
 }

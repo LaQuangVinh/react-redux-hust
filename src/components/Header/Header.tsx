@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import classNames from 'classnames/bind'
 import styles from './Header.module.scss'
 import logo from '../../assets/image/logoSchool.png'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import ConstRoutes from '../../routes/ConstRoutes'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
@@ -15,6 +15,7 @@ const cx = classNames.bind(styles)
 function Header() {
   const [activeSearch, setActiveSearch] = useState(false)
   const [animationSearch, setAnimationSearch] = useState(true)
+  const [fixHeader, setFixHeader] = useState(false)
   const handleActiveInput = () => {
     if (!activeSearch) {
       setActiveSearch(true)
@@ -29,8 +30,18 @@ function Header() {
       setActiveSearch(false)
     }
   }
+
+  document.addEventListener('scroll', () => {
+    if (window.scrollY > 231) {
+      setFixHeader(true)
+    } else if (window.scrollY < 160) {
+      setFixHeader(false)
+    }
+  })
+
   return (
-    <div>
+    <div className={fixHeader ? styles.wrapper : ''}>
+      {/* Ẩn hiện thanh search */}
       {activeSearch && (
         <div
           className={cx('inputSearchWrapper', `${animationSearch ? 'mountInputAnimation' : 'unmountInputAnimation'}`)}
@@ -47,7 +58,9 @@ function Header() {
           </Container>
         </div>
       )}
-      <Navbar expand='lg' className={styles.wrapper}>
+
+      {/* Navigate */}
+      <Navbar expand='lg' className={styles.wrapperNav}>
         <Container className={styles.container}>
           <Navbar.Brand className={styles.logoHome} href={ConstRoutes.home}>
             <img src={logo} alt='hust' />
@@ -99,6 +112,59 @@ function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* Navigate bên dưới */}
+      <div className={styles.wrapperNavBottom}>
+        <Container className={styles.containerNavBottom}>
+          <ul className={styles.navBottomList}>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                GIỚI THIỆU
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                TIN TỨC
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                SỰ KIỆN NỔI BẬT
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                TUYỂN SINH
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                ĐÀO TẠO
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                SINH VIÊN
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                NGHIÊN CỨU
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                HỢP TÁC ĐỐI NGOẠI
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.navBottomItem} to={'/d'}>
+                eHUST
+              </Link>
+            </li>
+          </ul>
+        </Container>
+      </div>
     </div>
   )
 }
