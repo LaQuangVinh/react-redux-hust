@@ -1,0 +1,29 @@
+.logoHome {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  img {
+    width: 55px;
+    height: 80px;
+  }
+}
+
+.nameSchoolList {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameSchoolItem {
+  color: var(--white);
+}
+
+.nameSchoolVie {
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+.nameSchoolEng {
+  font-weight: 500;
+  font-size: 1.5rem;
+}

@@ -1,0 +1,12 @@
+.wrapperNav {
+  background-color: transparent;
+  height: 110px;
+  display: inline-flex;
+
+  .navItem {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-left: 30px;
+  }
+}

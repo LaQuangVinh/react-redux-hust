@@ -77,30 +77,8 @@
   width: 100%;
   animation: fixHeader ease-in-out 0.5s;
 
-  .wrapperNav {
+  .wrapperHeaderTop {
     background-color: var(--primary);
-  }
-
-  .wrapperNavBottom {
-    background-color: #fdfdfe;
-    box-shadow: 0 0px 3px 2px rgb(0 0 0 / 30%);
-    width: 100%;
-    height: 44px;
-    position: relative;
-  }
-
-  .navBottomList {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 0;
-  }
-  .navBottomItem {
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: 1.6rem;
-    font-weight: 600;
   }
 }
 @keyframes fixHeader {
@@ -113,52 +91,16 @@
 }
 
 // CSS cho logo và tên trường
-.wrapperNav {
-  background-color: transparent;
-  height: 110px;
-
-  .navItem {
-    color: var(--white);
-    font-weight: 600;
-    font-size: 1.6rem;
-    margin-left: 30px;
-  }
-}
 
 .container {
+  position: relative;
+  padding: 0;
+}
+
+.containerNav {
   padding: 0;
   display: flex;
   justify-content: space-between;
-}
-
-.logoHome {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  img {
-    width: 55px;
-    height: 80px;
-  }
-}
-
-.nameSchoolList {
-  display: flex;
-  flex-direction: column;
-}
-
-.nameSchoolItem {
-  color: var(--white);
-}
-
-.nameSchoolVie {
-  font-weight: 800;
-  font-size: 2.5rem;
-}
-
-.nameSchoolEng {
-  font-weight: 500;
-  font-size: 1.5rem;
 }
 
 // CSS cho navigate
@@ -171,9 +113,11 @@
 }
 
 .iconAndSearchWrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 15px;
+  position: absolute;
+  top: 25px;
 }
 
 .btnSearch {
@@ -200,21 +144,3 @@
 }
 
 //Navigate bên dưới
-.containerNavBottom {
-  padding: 0;
-}
-
-.navBottomList {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 0;
-  height: 44px;
-}
-
-.navBottomItem {
-  cursor: pointer;
-  color: var(--white);
-  font-weight: 700;
-}
