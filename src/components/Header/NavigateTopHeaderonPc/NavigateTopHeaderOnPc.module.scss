@@ -3,6 +3,21 @@
   height: 110px;
   display: inline-flex;
 
+  .containerNav {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navList {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    align-items: center;
+    margin-left: 55px;
+    // gap: 30px;
+  }
+
   .navItem {
     color: var(--white);
     font-weight: 600;

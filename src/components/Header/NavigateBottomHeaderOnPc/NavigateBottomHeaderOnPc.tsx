@@ -14,46 +14,55 @@ function NavigateBottomHeaderOnPc() {
             <Link className={styles.navBottomItem} to={'/d'}>
               GIỚI THIỆU
             </Link>
+            <div className={styles.line}></div>
           </li>
           <li>
             <Link className={styles.navBottomItem} to={'/d'}>
               TIN TỨC
             </Link>
+            <div className={styles.line}></div>
           </li>
           <li>
             <Link className={styles.navBottomItem} to={'/d'}>
               SỰ KIỆN NỔI BẬT
             </Link>
+            <div className={styles.line}></div>
           </li>
           <li>
             <Link className={styles.navBottomItem} to={'/d'}>
               TUYỂN SINH
             </Link>
+            <div className={styles.line}></div>
           </li>
           <li>
             <Link className={styles.navBottomItem} to={'/d'}>
               ĐÀO TẠO
             </Link>
+            <div className={styles.line}></div>
           </li>
           <li>
             <Link className={styles.navBottomItem} to={'/d'}>
               SINH VIÊN
             </Link>
+            <div className={styles.line}></div>
           </li>
           <li>
             <Link className={styles.navBottomItem} to={'/d'}>
               NGHIÊN CỨU
             </Link>
+            <div className={styles.line}></div>
           </li>
           <li>
             <Link className={styles.navBottomItem} to={'/d'}>
               HỢP TÁC ĐỐI NGOẠI
             </Link>
+            <div className={styles.line}></div>
           </li>
           <li>
             <Link className={styles.navBottomItem} to={'/d'}>
               eHUST
             </Link>
+            <div className={styles.line}></div>
           </li>
         </ul>
       </Container>

@@ -69,7 +69,7 @@
   }
 }
 
-// Xử lí khi scroll
+// Xử lí khi scroll ( 1 phan ben navigateBottom )
 .wrapper {
   position: fixed;
   top: 0;
@@ -90,26 +90,9 @@
   }
 }
 
-// CSS cho logo và tên trường
-
 .container {
   position: relative;
   padding: 0;
-}
-
-.containerNav {
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-// CSS cho navigate
-.navList {
-  display: flex;
-  justify-content: end;
-  width: 100%;
-  align-items: center;
-  // gap: 30px;
 }
 
 .iconAndSearchWrapper {
@@ -118,11 +101,11 @@
   gap: 15px;
   position: absolute;
   top: 25px;
+  right: 0;
 }
 
 .btnSearch {
   color: var(--white);
-  margin-left: 30px;
   font-size: 2rem;
   cursor: pointer;
 }
@@ -142,5 +125,3 @@
   display: block;
   box-shadow: 0 0px 2px 1px rgb(0 0 0 / 15%);
 }
-
-//Navigate bên dưới

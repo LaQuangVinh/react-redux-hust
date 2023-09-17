@@ -10,6 +10,9 @@ import { useState, createContext } from 'react'
 import classNames from 'classnames/bind'
 import NavigateTopHeaderOnPc from './NavigateTopHeaderonPc/NavigateTopHeaderOnPc'
 import NavigateBottomHeaderOnPc from './NavigateBottomHeaderOnPc/NavigateBottomHeaderOnPc'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../store'
+import { fixHeader, unFixHeader } from './Header.slice'
 
 const cx = classNames.bind(styles)
 export const fixHeaderContext = createContext<boolean>(false)
@@ -17,7 +20,9 @@ export const fixHeaderContext = createContext<boolean>(false)
 function Header() {
   const [activeSearch, setActiveSearch] = useState(false)
   const [animationSearch, setAnimationSearch] = useState(true)
-  const [fixHeader, setFixHeader] = useState(false)
+  const dispatch = useDispatch()
+  const isFixHeader = useSelector((state: RootState) => state.FixHeader.isFixHeader)
+
   const handleActiveInput = () => {
     if (!activeSearch) {
       setActiveSearch(true)
@@ -33,25 +38,17 @@ function Header() {
     }
   }
 
-  console.log(2)
-
   document.addEventListener('scroll', () => {
     if (window.scrollY > 231) {
-      if (!fixHeader) {
-        setFixHeader(true)
-        console.log(fixHeader)
-      }
+      dispatch(fixHeader(true))
     } else if (window.scrollY < 160) {
-      if (fixHeader) {
-        setFixHeader(false)
-        console.log(fixHeader)
-      }
+      dispatch(unFixHeader(false))
     }
   })
 
   return (
-    <fixHeaderContext.Provider value={fixHeader}>
-      <div className={fixHeader ? styles.wrapper : ''}>
+    <fixHeaderContext.Provider value={isFixHeader}>
+      <div className={isFixHeader ? styles.wrapper : ''}>
         {/* Ẩn hiện thanh search */}
         {activeSearch && (
           <div
