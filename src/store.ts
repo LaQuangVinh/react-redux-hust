@@ -5,7 +5,7 @@ import headerReducer from './components/Header/Header.slice'
 
 export const store = configureStore({
   reducer: {
-    FixHeader: headerReducer
+    Header: headerReducer
   }
 })
 

@@ -60,3 +60,9 @@
   color: var(--white);
   font-weight: 700;
 }
+
+@media (max-width: 1043px) {
+  .navBottomList {
+    display: none;
+  }
+}

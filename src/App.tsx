@@ -6,7 +6,7 @@ import { ExoticComponent, Fragment, ReactNode } from 'react'
 function App() {
   return (
     <Router>
-      <div style={{ height: 1000 }} className='App'>
+      <div style={{ height: 1043 }} className='App'>
         <Routes>
           {publicRoutes.map((route, index) => {
             const Page = route.component

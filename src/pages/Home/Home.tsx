@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
-import ConstRoutes from '../../routes/ConstRoutes'
 import Header from '../../components/Header/Header'
 
 function Home() {

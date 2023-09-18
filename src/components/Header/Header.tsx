@@ -2,8 +2,6 @@ import Container from 'react-bootstrap/Container'
 
 import styles from './Header.module.scss'
 
-import { NavLink } from 'react-router-dom'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useState, createContext } from 'react'
@@ -13,6 +11,7 @@ import NavigateBottomHeaderOnPc from './NavigateBottomHeaderOnPc/NavigateBottomH
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store'
 import { fixHeader, unFixHeader } from './Header.slice'
+import NavigateTopHeaderOnMobile from './NavigateTopHeaderonMobile/NavigateTopHeaderOnMobile'
 
 const cx = classNames.bind(styles)
 export const fixHeaderContext = createContext<boolean>(false)
@@ -21,7 +20,9 @@ function Header() {
   const [activeSearch, setActiveSearch] = useState(false)
   const [animationSearch, setAnimationSearch] = useState(true)
   const dispatch = useDispatch()
-  const isFixHeader = useSelector((state: RootState) => state.FixHeader.isFixHeader)
+  const isFixHeader = useSelector((state: RootState) => state.Header.isFixHeader)
+  const widthDevice = window.screen.availWidth
+  console.log(widthDevice)
 
   const handleActiveInput = () => {
     if (!activeSearch) {
@@ -69,35 +70,14 @@ function Header() {
 
         {/* Navigate */}
         <div className={styles.wrapperHeaderTop}>
-          <Container className={styles.container}>
-            <NavigateTopHeaderOnPc />
-
-            <div className={styles.iconAndSearchWrapper}>
-              <span onClick={handleActiveInput} className={styles.btnSearch}>
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-              </span>
-              <div className={styles.flagWrapper}>
-                <NavLink to='/s'>
-                  <img
-                    className={styles.iconFlag}
-                    src='https://hust.edu.vn/themes/hust/images/language/en.png'
-                    alt='eng'
-                  />
-                </NavLink>
-                <NavLink to='/s'>
-                  <img
-                    className={styles.iconFlag}
-                    src='https://hust.edu.vn/themes/hust/images/language/vi.png'
-                    alt='eng'
-                  />
-                </NavLink>
-              </div>
-            </div>
-          </Container>
+          <div className={styles.contentHeaderTop}>
+            <NavigateTopHeaderOnPc handleActiveInput={handleActiveInput} />
+            <NavigateTopHeaderOnMobile handleActiveInput={handleActiveInput} />
+            <NavigateBottomHeaderOnPc />
+          </div>
         </div>
 
         {/* Navigate bên dưới */}
-        <NavigateBottomHeaderOnPc />
       </div>
     </fixHeaderContext.Provider>
   )

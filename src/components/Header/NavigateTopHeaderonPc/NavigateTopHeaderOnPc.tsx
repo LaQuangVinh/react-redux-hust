@@ -1,40 +1,65 @@
 import styles from './NavigateTopHeaderOnPc.module.scss'
-import LogoHeaderOnPc from '../LogoHeaderOnPc/LogoHeaderOnPc'
-import Nav from 'react-bootstrap/Nav'
-import Container from 'react-bootstrap/Container'
-import { NavLink } from 'react-router-dom'
-import Navbar from 'react-bootstrap/Navbar'
-import classNames from 'classnames/bind'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import LogoHeader from '../LogoHeader/LogoHeader'
 
-const cx = classNames.bind(styles)
-
-function NavigateTopHeaderOnPc() {
+function NavigateTopHeaderOnPc({ handleActiveInput }: { handleActiveInput: () => void }) {
   return (
-    <Navbar expand='lg' className={styles.wrapperNav}>
-      <Container className={styles.containerNav}>
-        <LogoHeaderOnPc />
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className={`${cx('navList')} me-auto`}>
-            <NavLink className={styles.navItem} to='/s'>
+    <div className={styles.wrapper}>
+      <LogoHeader />
+      <div className={styles.wrapperNav}>
+        <ul className={styles.navList}>
+          <li>
+            <Link className={styles.navItem} to='/s'>
               Tuyển dụng
-            </NavLink>
-            <NavLink className={styles.navItem} to='/s'>
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.navItem} to='/s'>
               Dự án SAHEP
-            </NavLink>
-            <NavLink className={styles.navItem} to='/s'>
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.navItem} to='/s'>
               Email
-            </NavLink>
-            <NavLink className={styles.navItem} to='/s'>
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.navItem} to='/s'>
               Lịch công tác
-            </NavLink>
-            <NavLink className={styles.navItem} to='/s'>
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.navItem} to='/s'>
               Liên hệ
-            </NavLink>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            </Link>
+          </li>
+
+          <div className={styles.iconAndSearchWrapper}>
+            <span onClick={handleActiveInput} className={styles.btnSearch}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </span>
+            <div className={styles.flagWrapper}>
+              <Link to='/s'>
+                <img
+                  className={styles.iconFlag}
+                  src='https://hust.edu.vn/themes/hust/images/language/en.png'
+                  alt='eng'
+                />
+              </Link>
+              <Link to='/s'>
+                <img
+                  className={styles.iconFlag}
+                  src='https://hust.edu.vn/themes/hust/images/language/vi.png'
+                  alt='eng'
+                />
+              </Link>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
   )
 }
 

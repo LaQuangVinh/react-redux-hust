@@ -1,0 +1,76 @@
+.wrapperLogo {
+  display: inline-block;
+}
+
+.logoHome {
+  display: flex;
+  align-items: center;
+  // gap: 20px;
+
+  img {
+    width: 55px;
+    height: 80px;
+    margin-right: 20px;
+  }
+}
+
+.nameSchoolList {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameSchoolItem {
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.nameSchoolVie {
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+.nameSchoolEng {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.nameSchoolListOnSmallScreen {
+  display: none;
+}
+
+@media (max-width: 1043px) {
+  .logoHome {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 55px;
+      height: 80px;
+      margin-right: 5px;
+    }
+  }
+
+  .nameSchoolList {
+    display: none;
+  }
+
+  .nameSchoolListOnSmallScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    font-weight: 600;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .nameSchoolVie {
+    font-weight: 800;
+    font-size: 1.3rem;
+  }
+
+  .nameSchoolEng {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}
