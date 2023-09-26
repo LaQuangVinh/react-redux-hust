@@ -49,7 +49,7 @@ function Header() {
 
   return (
     <fixHeaderContext.Provider value={isFixHeader}>
-      <div className={isFixHeader ? styles.wrapper : ''}>
+      <div className={`${isFixHeader ? styles.wrapper : ''} ${styles.Wrapper}`}>
         {/* Ẩn hiện thanh search */}
         {activeSearch && (
           <div
@@ -73,6 +73,10 @@ function Header() {
           <div className={styles.contentHeaderTop}>
             <NavigateTopHeaderOnPc handleActiveInput={handleActiveInput} />
             <NavigateTopHeaderOnMobile handleActiveInput={handleActiveInput} />
+          </div>
+        </div>
+        <div className={styles.wrapperHeaderBottom}>
+          <div className={styles.contentHeaderTop}>
             <NavigateBottomHeaderOnPc />
           </div>
         </div>

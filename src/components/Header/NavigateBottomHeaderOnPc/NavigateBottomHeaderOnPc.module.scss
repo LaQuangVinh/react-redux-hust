@@ -1,7 +1,7 @@
 .wrapperNavBottom {
   --heightNavBottom: 44px;
   background-color: #fdfdfe;
-  box-shadow: 0 0px 3px 2px rgb(0 0 0 / 30%);
+
   width: 100%;
   height: var(--heightNavBottom);
   position: relative;
@@ -25,20 +25,10 @@
     font-size: 1.6rem;
     font-weight: 600;
     padding: calc((var(--heightNavBottom)) / 4) 0;
-
-    &:hover ~ .line {
-      height: 4px;
-      animation: lineScale ease-in 0.3s;
-    }
   }
-}
 
-@keyframes lineScale {
-  from {
-    scale: 0;
-  }
-  to {
-    scale: 1;
+  .listNav {
+    top: 40px;
   }
 }
 
@@ -55,10 +45,99 @@
   height: 44px;
 }
 
+.hiddenWhenFirstApp {
+  overflow: hidden;
+}
+
 .navBottomItem {
   cursor: pointer;
   color: var(--white);
   font-weight: 700;
+  position: relative;
+}
+
+.navBottomItem::before {
+  content: '';
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  top: 15px;
+  background-color: transparent;
+  display: block;
+}
+
+.listNav {
+  // display: none;
+  position: absolute;
+  top: 24px;
+
+  width: 238px;
+  background-color: #fdfdfe;
+  box-shadow: 0 0px 3px 2px rgb(0 0 0 / 30%);
+  padding-left: 0;
+  list-style: none;
+}
+
+.navBottomItem:hover .listNav,
+.listNavItem:hover .listNav2 {
+  animation: fadeIn ease-in 0.4s forwards;
+  display: block;
+}
+
+.navBottomItem:not(:hover) .listNav,
+.listNavItem:not(:hover) .listNav2 {
+  animation: fadeOut ease-in 0.4s forwards;
+}
+
+.itemNav {
+  color: var(--text-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.itemNav:hover {
+  color: var(--primary);
+}
+
+.listNavItem {
+  padding: 6px;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.listNav2 {
+  background-color: var(--white);
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 238px;
+  background-color: #fdfdfe;
+  box-shadow: 0 0px 3px 2px rgb(0 0 0 / 30%);
+  padding-left: 0;
+  list-style: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    // display: block;
+  }
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
 }
 
 @media (max-width: 1043px) {

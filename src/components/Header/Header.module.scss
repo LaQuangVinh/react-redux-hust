@@ -1,3 +1,7 @@
+.Wrapper {
+  width: 100%;
+}
+
 //Ẩn hiện search
 .inputSearchWrapper {
   background-color: #333;
@@ -80,6 +84,17 @@
   .wrapperHeaderTop {
     background-color: var(--primary);
   }
+
+  .wrapperHeaderBottom {
+    box-shadow: 0 0px 3px 2px rgb(0 0 0 / 30%);
+    background-color: #fdfdfe;
+  }
+}
+
+.wrapperHeaderTop {
+  height: var(--heightHeaderTop);
+  display: flex;
+  justify-content: center;
 }
 @keyframes fixHeader {
   from {
@@ -90,14 +105,12 @@
   }
 }
 
-.wrapperHeaderTop {
-  height: var(--heightHeaderTop);
-  display: flex;
-  justify-content: center;
-  // align-items: center;
-}
-
 .contentHeaderTop {
   width: 1200px;
   max-width: 99%;
+}
+
+.wrapperHeaderBottom {
+  display: flex;
+  justify-content: center;
 }
